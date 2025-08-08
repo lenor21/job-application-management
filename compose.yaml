@@ -1,0 +1,13 @@
+version: "1"
+services:
+  nextjs-app:
+    build:
+      context: .
+    image: nextjs-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules # Exclude node_modules from the host mount to prevent issues
+    environment:
+      - NODE_ENV=development
